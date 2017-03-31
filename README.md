@@ -1,0 +1,2 @@
+# spectre
+django-simple-blog
