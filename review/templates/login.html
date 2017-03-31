@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+	{% block content %}
+
+    <!-- Page Header -->
+    <!-- Set your background image for this header on the line below. -->
+    <header class="intro-header" style="background-image: url('/static/img/home-bg.jpg')">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    <div class="site-heading">
+                        <h1>Login</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <center>
+    <div class="container">
+	  <form class="form-horizontal" method="post">{% csrf_token %}
+	  <div class="form-group">
+	      <label class="control-label col-sm-5" for="name">Username :</label>
+	      <div class="col-sm-4">
+	        	{{ form.username }}
+	        </div>
+	    </div>
+	    <div class="form-group">
+	      <label class="control-label col-sm-5" for="password">Password :</label>
+	      <div class="col-sm-4">
+	        	{{ form.password }}
+	        </div>
+	    </div>
+	    <br>
+		<button type="submit" name="_submit" class="btn btn-default">Login</button>
+	  </form>
+	  	{% if message %}
+                <script>
+                alert('Sorry, Login incorrect!');
+                window.location="/spectre/login"
+                </script>
+        {% endif %}
+	</div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    <p class="copyright text-muted">Copyright &copy; Spectre 2017</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- jQuery -->
+    <script src="/static/vendor/jquery/jquery.min.js"></script>
+    <!-- Bootstrap Core JavaScript -->
+    <script src="/static/vendor/bootstrap/js/bootstrap.min.js"></script>
+    <!-- Contact Form JavaScript -->
+    <script src="/static/js/jqBootstrapValidation.js"></script>
+    <script src="/static/js/contact_me.js"></script>
+    <!-- Theme JavaScript -->
+    <script src="/static/js/clean-blog.min.js"></script>
+
+{% endblock %}

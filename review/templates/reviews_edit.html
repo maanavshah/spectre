@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+{% block content %}
+
+    <!-- Page Header -->
+    <!-- Set your background image for this header on the line below. -->
+    <header class="intro-header" style="background-image: url('/static/img/post-bg.jpg')">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    <div class="post-heading">
+                        <h1>{{ post.title }}</h1>
+                        <h2 class="subheading">Posted by {{ post.author }}</h2>
+                        <span class="meta">Posted on {{ post.published_date }}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <center>
+        <div class="container">
+          <h2>Edit Spectre</h2>
+          <br>
+          <form class="form-horizontal" method="post">{% csrf_token %}
+          <div class="form-group">
+              <label class="control-label col-sm-5" for="name">Title :</label>
+              <div class="col-sm-2">
+                    {{ form.title }}
+                </div>
+            </div>
+            <div class="form-group">
+              <label class="control-label col-sm-5" for="detail">Details :</label>
+              <div class="col-sm-4">
+                    {{ form.text }}
+                </div>
+            </div>
+            <br>
+            <button type="submit" name="_submit" class="btn btn-default">Submit</button>
+          </form>
+        </div>
+    </center>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    <p class="copyright text-muted">Copyright &copy; Spectre 2017</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- jQuery -->
+    <script src="/static/vendor/jquery/jquery.min.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="/static/vendor/bootstrap/js/bootstrap.min.js"></script>
+
+    <!-- Contact Form JavaScript -->
+    <script src="/static/js/jqBootstrapValidation.js"></script>
+    <script src="/static/js/contact_me.js"></script>
+
+    <!-- Theme JavaScript -->
+    <script src="/static/js/clean-blog.min.js"></script>
+
+{% endblock %}
